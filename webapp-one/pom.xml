@@ -7,9 +7,6 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>webapp-one Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  <build>
-    <defaultGoal>install</defaultGoal>
-  </build>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -20,5 +17,6 @@
   </dependencies>
   <build>
     <finalName>webapp-one</finalName>
+    <defaultGoal>install</defaultGoal>
   </build>
 </project>
