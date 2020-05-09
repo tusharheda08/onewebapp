@@ -1,0 +1,23 @@
+currentBuild.displayName="Hello-World-Project-#"+currentBuild.number
+
+pipeline {
+   agent any
+
+   stages {
+      stage("Git Checkout") {
+         steps {
+          git 'https://github.com/tusharheda08/onewebapp.git/'
+         }
+      }
+       stage("Maven Build") {
+         steps {
+             
+             sh script: 'mvn -f webapp-one/pom.xml'
+         }
+      } 
+       
+    }
+ }
+      
+   
+
