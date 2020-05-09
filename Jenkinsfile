@@ -13,10 +13,10 @@ pipeline {
       }
        stage("Maven Build") {
          steps {
-             def mvnHome = tool name: 'Maven', type: 'maven'
-             sh "${mvnHome}/bin/mvn package"
+            // def mvnHome = tool name: 'Maven', type: 'maven'
+           //  sh "${mvnHome}/bin/mvn package"
             
-            // sh script: 'mvn -f webapp-one/pom.xml'
+            sh script: 'mvn -f webapp-one/pom.xml'
             
             
          }
