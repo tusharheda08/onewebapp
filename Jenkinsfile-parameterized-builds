@@ -1,8 +1,8 @@
 currentBuild.displayName="Hello-World-Project-#"+currentBuild.number
 
 properties([[$class: 'JiraProjectProperty'], 
-            parameters([choice(choices: ['master', 'future', 'development', 'testing'], 
-            description: 'select branch to build project', name: 'branchName')])])
+parameters([choice(choices: ['master', 'development', 'testing'],
+description: 'Build project with the branches ', name: 'BranchName')])])
 
 pipeline {
    agent any
