@@ -1,26 +1,21 @@
 currentBuild.displayName="Hello-World-Project-#"+currentBuild.number
 
+properties([[$class: 'JiraProjectProperty'], 
+            parameters([choice(choices: ['master', 'future', 'development', 'testing'], 
+            description: 'select branch to build project', name: 'branch')])])
+
 pipeline {
    agent any
 
    stages {
       stage("Git Checkout") {
          steps {
-          git 'https://github.com/tusharheda08/onewebapp.git/'
+          echo "pulling changes from the branch ${params.branch}"
+          git 'https://github.com/tusharheda08/onewebapp.git/',branch:"${params.branch}"
            // git 'https://github.com/tusharheda08/onewebapp'
             
          }
       }
-       stage("Maven Build") {
-         steps {
-            // def mvnHome = tool name: 'Maven', type: 'maven'
-           //  sh "${mvnHome}/bin/mvn package"
-            
-            sh script: 'mvn -f webapp-one/pom.xml'
-            
-            
-         }
-      } 
        
     }
  }
