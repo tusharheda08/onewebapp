@@ -28,7 +28,15 @@ stages {
             
          }
       } 
-    
+    stage("Docker Push Image") {
+         steps {
+         withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPassword')]) {
+          sh "docker login -u tusharheda -p ${dockerHubPassword}"
+    }
+        sh 'docker push tusharheda/webapp-one:1.0.0'
+            
+         }
+      } 
   }
     
 }
