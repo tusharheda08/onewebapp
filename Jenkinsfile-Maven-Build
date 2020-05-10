@@ -1,1 +1,19 @@
-pipeline
+
+pipleine {
+
+ageny any 
+
+stages {
+    stage ("Git checkout ") 
+      {
+        steps {
+               git 'https://github.com/tusharheda08/onewebapp.git'  
+               }
+        }
+    }
+    
+    
+    
+    
+    
+}
