@@ -23,6 +23,8 @@ stages {
       } 
       stage("Build Docker Image") {
          steps {
+        sh  'cd /home/ec2-user'
+          sh 'cp /var/lib/jenkins/workspace/Deploy_on_DockerHub/devopsTest//Dockerfile /home/ec2-user'
             sh 'docker build -t tusharheda/webapp-one:1.0.0 .'
             
          }
