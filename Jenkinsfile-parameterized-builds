@@ -10,8 +10,8 @@ pipeline {
    stages {
       stage("Git Checkout") {
          steps {
-          echo "pulling changes from the branch ${params.branchName}"
-          git url:'https://github.com/tusharheda08/onewebapp.git/',branch:"${params.branchName}"
+          echo "pulling changes from the branch ${params.BranchName}"
+          git url:'https://github.com/tusharheda08/onewebapp.git/',branch:"${params.BranchName}"
            // git 'https://github.com/tusharheda08/onewebapp'
             
          }
