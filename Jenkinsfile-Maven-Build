@@ -1,7 +1,6 @@
 
-pipleine {
-
-ageny any 
+pipeline {
+   agent any
 
 stages {
     stage ("Git checkout ") 
