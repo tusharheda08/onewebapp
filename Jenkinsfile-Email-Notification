@@ -22,12 +22,13 @@ pipeline {
          }
       } 
       
-      stage ("email Notification")
+      stage ("Email Notification") {
        steps {
            mail bcc: '', body: '''hello Welcome to Jenkins job email notification
           Thanks,
           Tushar''', cc: '', from: '', replyTo: '', subject: 'Jenkins job email notification', to: 'tusharheda08@gmail.com'
         }
+      }  
        
     }
  }
