@@ -2,7 +2,7 @@ currentBuild.displayName="Hello-World-Project-#"+currentBuild.number
 
 pipeline {
    agent any
-    docker { image 'tomcat:alpine' }
+    docker { image 'node:tomcat:alpine' }
    
 
    stages {
