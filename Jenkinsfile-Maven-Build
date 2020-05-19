@@ -16,10 +16,8 @@ stages {
             // def mvnHome = tool name: 'Maven', type: 'maven'
            //  sh "${mvnHome}/bin/mvn package"
             
-            sh """
-            'mvn -f webapp-one/pom.xml'
-            'pwd'
-            """
+            
+            sh script:'mvn -f webapp-one/pom.xml'
             
          }
       } 
@@ -29,11 +27,10 @@ stages {
       stage("Build Docker Image") {
          steps {
          
-       sh """
-           'pwd'
+      
         
-            'docker build -t tusharheda/webapp-one-test-new:1.0.0 .'
-            """
+           sh 'docker build -t tusharheda/webapp-one-test-new:1.0.0 .'
+           
             //sh script: 'sudo docker build -t webapp-one-image .'
             //sh 'docker build -t shanem/spring-petclinic:latest .'
             
