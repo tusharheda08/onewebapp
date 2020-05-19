@@ -25,7 +25,7 @@ stages {
          steps {
         
             //sh 'docker build -t tusharheda/webapp-one:1.0.0 .'
-            sh docker build -t webapp-one-image -f Dockerfile
+            sh script: 'docker build -t webapp-one-image -f Dockerfile'
             
          }
       } 
