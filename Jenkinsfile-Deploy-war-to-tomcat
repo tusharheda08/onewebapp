@@ -2,9 +2,7 @@ currentBuild.displayName="Hello-World-Project-#"+currentBuild.number
 
 pipeline {
    agent any
-    docker { image 'node:tomcat:alpine' }
-   
-
+    
    stages {
       stage("Git Checkout") {
          steps {
