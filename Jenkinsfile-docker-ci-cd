@@ -33,12 +33,18 @@ stages {
          }
       } 
       
-      stage('Upload To DockerHub'){
-     
-      sh "docker login -u tusharheda -p Prayasnivas@12345"
-      sh "docker push tusharheda/webapp-one:1.0.0"
-   }
+      stage('Push Docker Image to DockerHub'){
       
+      withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
+         sh "docker login -u tusharheda -p ${dockerHubPwd}"
+    }
+      sh 'docker push tusharheda/webapp-one:1.0.0'
+   }
+   
+   stage('Run Container on tomcat server') {
+    sh 'docker run -p 8090:8080 -d --name container-webapp-one tusharheda/webapp-one:1.0.0'
+   
+      }
   
   }
     
