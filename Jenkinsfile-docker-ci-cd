@@ -44,7 +44,7 @@ stages {
   }
    
    stage('Run Container on tomcat server') {
-   stage {
+    steps {
     sh 'docker run -p 8090:8080 -d --name container-webapp-one tusharheda/webapp-one:1.0.0'
     
     //docker run -d --name docker-container-01 -p 8090:8080 docker-image-01
