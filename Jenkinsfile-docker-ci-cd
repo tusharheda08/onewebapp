@@ -34,20 +34,23 @@ stages {
       } 
       
       stage('Push Docker Image to DockerHub'){
+        steps {
       
       withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
          sh "docker login -u tusharheda -p ${dockerHubPwd}"
     }
       sh 'docker push tusharheda/webapp-one:1.0.0'
    }
+  }
    
    stage('Run Container on tomcat server') {
+   stage {
     sh 'docker run -p 8090:8080 -d --name container-webapp-one tusharheda/webapp-one:1.0.0'
     
     //docker run -d --name docker-container-01 -p 8090:8080 docker-image-01
    
       }
-  
+   }
   }
     
 }
