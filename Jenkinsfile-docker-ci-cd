@@ -25,7 +25,7 @@ stages {
       stage("Build Docker Image") {
          steps {
         
-           sh 'docker build . -t tusharheda/webapp-one:1.1.0 .'
+           sh 'docker build -t tusharheda/webapp-one:1.1.0 .'
            
             //sh 'docker build -t webapp-one-imaget .'
             //sh 'docker build -t shanem/spring-petclinic:latest .'
