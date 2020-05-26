@@ -25,7 +25,7 @@ stages {
       stage("Build Docker Image") {
          steps {
         
-           sh "docker build . -t tusharheda/webapp-one:${dockerTag()}"
+           sh 'docker build . -t tusharheda/webapp-one:1.1.0 .'
            
             //sh 'docker build -t webapp-one-imaget .'
             //sh 'docker build -t shanem/spring-petclinic:latest .'
@@ -39,7 +39,7 @@ stages {
       withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
          sh "docker login -u tusharheda -p ${dockerHubPwd}"
     }
-      sh "docker push tusharheda/webapp-one:${dockerTag()}"
+      sh 'docker push tusharheda/webapp-one:1.1.0'
    }
   }
    
@@ -53,9 +53,4 @@ stages {
    }
   }
     
-}
-
-def dockerTag(){
-    def commitId = sh returnStdout: true, script: 'git rev-parse --short HEAD'
-	return commitId
 }
