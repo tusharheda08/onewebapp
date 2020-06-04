@@ -1,0 +1,10 @@
+# setup-app.yml
+
+---
+  - hosts: all
+    become: true
+    tasks:
+      - name: Upload application file
+        copy:
+          src: /var/lib/jenkins/workspace/CI-CD_Git_Jenkins_Ansible_DockerHub_Docker/webapp-one/target/webapp-one.war
+          dest: /usr/local/latest/apache-tomcat-8.5.55/webapps
