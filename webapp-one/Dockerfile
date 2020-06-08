@@ -1,5 +1,5 @@
 # use a node base image
-FROM tomcat:8-jre8
+FROM tomcat:alpine
 
 # set maintainer
 MAINTAINER Tushar Heda <tusharheda08@gmail.com>
